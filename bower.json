@@ -1,0 +1,12 @@
+{
+  "name": "builder",
+  "version": "1.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.4"
+  }
+}

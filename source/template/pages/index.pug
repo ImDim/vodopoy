@@ -1,0 +1,39 @@
+extends ../_template
+block content
+    .wrapper
+        .particles(id="particles-js")
+        header.header
+            h1.header__title.glitch(data-text="В•Д•П•Й") 
+                a(href="https://vk.com/club177779275" target="_blank") В&#8226;Д&#8226;П&#8226;Й
+            .header__socials
+                a(href="https://vk.com/navodopoy" target="_blank").header__icon
+                    <i class="fab fa-vk"></i>
+                a(href="https://www.instagram.com/navodopoy" target="_blank").header__icon
+                    <i class="fab fa-instagram"></i>    
+        form.form(id="form")
+                canvas(id="canvas").form__noise
+                .form__body
+                    .input.form__input
+                        input(type="text" name="name" placeholder="Ваше имя и фамилия" required)
+                    .input.form__input
+                        input(type="email" name="email" placeholder="Ваш e-mail" required)
+                    .input.form__input
+                        input(type="text" name="socials" placeholder="Ваш Instagram / VK" required)
+                    label.form__label(for="age") Мой возраст более 18 лет
+                        input(type="checkbox" id="age" required)
+                        span.checkmark.checkmak--age
+                    label.form__label.form__label--agreement(for="agreement") Соглашаюсь на обработку персональных данных
+                        input(type="checkbox" id="agreement" required)
+                        span.checkmark    
+                    button.form__button(type="submit")
+                        span Зарегистрироваться
+                .form__preloader
+                .form__error
+                    p Ошибка!
+                    p#form__error-text.form__error-text
+                    p Попробуйте ещё раз или напишите <a href="https://vk.com/h1ghspire" target="_blank">мне</a> 
+                .form__success
+                    p Вы зарегистрированы!
+                    p Мы выслали Вам подтверждение, обязательно проверьте Вашу почту!
+                    p Если письмо не пришло, проверьте папку «спам».
+                    p Возникли вопросы? Пишите <a href="https://vk.com/h1ghspire" target="_blank">мне</a>    

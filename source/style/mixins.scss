@@ -1,0 +1,161 @@
+@mixin box-shadow($params){
+	box-shadow: $params;
+	-webkit-box-shadow : $params;
+	-moz-box-shadow: $params;
+}
+
+%clearfix {
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+@mixin inlineblock($valign: top) {
+	display: inline-block;
+	vertical-align: $valign;
+}
+
+@mixin float($left) {
+	float: left ;
+	width: 25% ;
+}
+
+//flex
+
+@mixin	flexMid ($center)	{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+// fonts/
+
+@mixin fa-icon() {
+  display: inline-block;
+  font: normal normal normal #{$fa-font-size-base}/#{$fa-line-height-base} FontAwesome; // shortening font declaration
+  font-size: inherit; // can't have font-size inherit on line above, so need to override
+  text-rendering: auto; // optimizelegibility throws things off #1094
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+@mixin fonts ($name, $alias, $weight: normal, $style: normal) {
+	font-family: $alias;
+	src: url("../fonts/" + $name + ".eot?#iefix") format("embedded-opentype"), url("../fonts/" + $name + ".ttf") format("truetype");
+	font-weight: $weight;
+	font-style: $style;
+}
+
+@mixin fira ($style: regular) {
+	@if $style == regular {
+		font-family: 'fira_sansregular';
+	}
+
+	@if $style == bold {
+		font-family: 'fira_sansbold';
+	}
+}
+
+
+//responsive
+@function rem($px) {
+	@return $px / 16px + 0rem;
+}
+
+@mixin forK {
+	@media screen and (max-width: 2400px) {
+		@content;
+	}
+}
+
+@mixin fullHD {
+	@media screen and (max-width: 1920px) {
+		@content;
+	}
+}
+
+@mixin laptop-l {
+	@media screen and (max-width: 1440px) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media screen and (max-width: 1300px) {
+		@content;
+	}
+}
+
+@mixin laptop {
+	@media screen and (max-width: 992px) {
+		@content;
+	}
+}
+
+
+@mixin tablets {
+	@media screen and (max-width: 768px) {
+		@content;
+	}
+}
+
+
+@mixin phones {
+	@media screen and (max-width: 480px) {
+		@content;
+	}
+}
+
+// mobile first
+
+@mixin xs {
+	@media screen and (min-width: 600px) {
+		@content;
+	}
+}
+
+@mixin s {
+	@media screen and (min-width: 768px) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@media screen and (min-width: 1024px) {
+		@content;
+	}
+}
+
+@mixin m {
+	@media screen and (min-width: 1280px) {
+		@content;
+	}
+}
+
+@mixin l {
+	@media screen and (min-width: 1600px) {
+		@content;
+	}
+}
+
+@mixin xl {
+	@media screen and (min-width: 1920px) {
+		@content;
+	}
+}
+
+// flexes
+
+@mixin flex($direction) {
+	display: flex;
+	flex-direction: $direction;
+}
+
+@mixin flex-align($align) {
+	justify-content: $align;
+	align-content: $align;
+	align-items: $align;
+}

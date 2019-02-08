@@ -1,0 +1,234 @@
+//responsive
+@function rem($px) {
+	@return $px / 16px + 0rem;
+}
+
+
+@mixin desktop {
+	@media screen and (max-width: 1300px) {
+		@content;
+	}
+}
+
+@mixin laptop {
+	@media screen and (max-width: 992px) {
+		@content;
+	}
+}
+
+
+@mixin tablets {
+	@media screen and (max-width: 768px) {
+		@content;
+	}
+}
+
+
+@mixin phones {
+	@media screen and (max-width: 480px) {
+		@content;
+	}
+}
+
+// html {
+// 	font-size: 16px;
+// 	@include desktop	{
+// 		.container, .container--column	{
+// 			width: 970px;
+// 		}
+// 	}
+
+
+// 	@include laptop	{
+// 		font-size: 15px;
+// 		.container, .container--column	{
+// 			width: 100%;
+// 			padding: 0 20px;
+// 		}
+
+// 	}
+// 	@include tablets	{
+// 		font-size: 14px;
+// 		.container, .container--column	{
+// 			width: 100%;
+// 			padding: 0 20px;
+// 		}
+
+// 	}
+// 	@include phones	{
+// 		font-size: 12px;
+// 		.container, .container--column	{
+// 			width: 95%;
+// 			padding: 0 20px;
+// 		}
+// 	}
+// }
+
+html {
+	font-size: 14px;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	position: relative;
+	font-family: $text-font;
+	background-color: #000;
+}
+
+body {
+	line-height: 1.42;
+	-webkit-font-smoothing: antialiased;
+}
+
+.wrapper { //fixed bottom footer
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	max-height: 100vh;
+	overflow: hidden;
+	width: 100%;
+}
+
+.maincontent {
+	flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.container  {
+	width: 100%;
+	min-width: 320px;
+	padding: 0 20px;
+    display: flex;
+	flex-direction: row;
+	position: relative;
+    margin-left: auto;
+	margin-right: auto;
+		@include s {
+			padding: 0 30px;
+		}
+		@include sm {
+			padding: 0 40px;
+		}
+		@include m {
+			padding: 0 60px;
+		}
+		@include xl {
+			padding: 0 120px;
+		}
+}
+
+.container--column  {
+	flex-direction: column;
+}
+
+.flex-center {
+	@include flex-align(center);
+}
+
+*, *:before, *:after {
+	box-sizing: border-box;
+  }
+
+footer  {
+    position: relative;
+}
+
+// normalize
+
+li {
+	list-style: none;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+p  {
+	margin: 0;
+}
+
+// img:not(.tapes__picture) {
+// 	max-width: 100%;
+// 	height: auto;
+// }
+
+button {
+	outline: 0;
+	border: 0;
+	cursor: pointer;
+}
+
+h1 {
+	margin: 0;
+}
+
+// buttons
+
+.btn {
+	display: inline-block;
+	text-align: center;
+	min-width: 280px;
+	width: 65%;
+	font-family: $text-font;
+	font-size: 16px;
+	background-color: #f57323;
+	color: white;
+	padding: 20px 0;
+	border: solid 1px transparent;
+		@include xs {
+			min-width: 230px;
+		}
+}
+
+.btn--reverse {
+	display: inline-block;
+	text-align: center;
+	min-width: 280px;
+	width: 65%;
+	font-family: $text-font;
+	font-size: 16px;
+	background-color: transparent;
+	color: #f57323;
+	padding: 20px 0;
+	border: solid 1px #f57323;
+	@include xs {
+		min-width: 230px;
+	}
+}
+
+
+// heading
+
+.heading {
+	font-family: $title-font;
+        font-size: 24px;
+        line-height: 1.25;
+		margin-bottom: 15px;
+		color: $text-colour;
+		font-weight: normal;
+}
+
+// subtitle 
+
+.title {
+	font-family: $title-font;
+	font-size: 18px;
+	color: $text-colour;
+	margin: 0;
+	margin-bottom: 15px;
+	font-weight: normal;
+}
+
+input:-webkit-autofill {
+    box-shadow: 0 0 0 100px #000 inset !important;
+    -webkit-text-fill-color: #fff !important;
+    color: #fff !important;
+}

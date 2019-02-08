@@ -1,0 +1,310 @@
+.form {
+    padding: 15px 25px;
+    width: 70vw;
+    max-width: 450px;
+    // background-color: #fff;
+    border-radius: 20px;
+    z-index: 9;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+
+    @include phones {
+        width: 300px;
+        padding: 15px 20px;
+    }
+
+    &.loaded {
+        .form__success {
+            pointer-events: all;
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+        .form__body {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    &.error {
+        .form__error {
+            pointer-events: all;
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+        .form__error-text:empty {
+            display: none
+        }
+        .form__body {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        background-color: black;
+        border-radius: 20px;
+        padding: 20px 40px;
+        transition: all 0.3s;
+        @include phones {
+            padding: 20px 30px;
+        }
+    }
+
+    &__input {
+
+        width: 100%;
+
+        input {
+            width: 100%;
+            border-radius: 0;
+            background-color: transparent;
+            border: none;
+            background-image: none;
+            background-color: transparent;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            -webkit-appearance: none;
+            outline: transparent;
+            color: white;
+            padding-bottom: 5px;
+            // padding: 10px 20px;
+            font-family: 'light';
+            font-size: 18px;
+            border-bottom: 1px solid white;
+            height: 35px;
+
+            &::placeholder {
+                color: white;
+                opacity: 1;
+            }
+        }
+    }
+
+    &__preloader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    &__success, &__error {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 2;
+        color: white;
+        font-family: 'light';
+        text-align: center;
+        background-color: #000;
+        border-radius: 20px;
+        padding: 20px 25px;
+        font-size: 20px;
+        width: 90%;
+        transition: all .3s ease-in;
+        transition-delay: 0.2s;
+        transform: translate(-50%, -45%);
+        transform-origin: center;
+        @include phones {
+            font-size: 16px;
+        }
+
+        p + p {
+            margin-top: 10px;
+        }
+
+        a {
+            display: inline;
+            color: #fff;
+            border-bottom: 1px dashed white;
+        }
+    }
+
+    &__input+&__input {
+        margin-top: 15px;
+    }
+
+    &__noise {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border-radius: 20px;
+        z-index: 1;
+    }
+
+    &__button {
+        border: 1px solid white;
+        position: relative;
+        margin: 20px 0 0 0;
+        padding: 5px 0;
+        width: auto;
+        overflow: hidden;
+        background: black;
+        cursor: pointer;
+        color: white;
+        font-family: 'light';
+        -webkit-appearance: button;
+        background-color: transparent;
+        width: 100%;
+        max-width: 200px;
+        font-size: 18px;
+        border-radius: 20px;
+
+        transition: all 0.3s;
+
+        span {
+            z-index: 20;
+        }
+
+        &:after {
+            background: #fff;
+            content: "";
+            height: 155px;
+            left: -75px;
+            opacity: .2;
+            position: absolute;
+            top: -50px;
+            transform: rotate(35deg);
+            transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+            width: 50px;
+            z-index: -10;
+        }
+
+        &:hover {
+
+            &:after {
+                left: 120%;
+                transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+            }
+        }
+
+        &:focus {
+            transform: scale(0.9)
+            // color: black;
+            // border-color: black;
+        }
+    }
+
+}
+
+.form__label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-family: 'light';
+    font-size: 14px;
+    padding-right: 35px;
+    color: white;
+    margin-top: 15px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 100%;
+    // height: 35px;
+
+    @include phones {
+        justify-content: flex-start;
+    }
+
+    @include tablets {
+        justify-content: flex-start;
+    }
+
+    @include phones {
+        font-size: 12px;
+        margin-top: 20px;
+    }
+
+    &--agreement {
+        
+        margin-top: 10px;
+        @include phones {
+            margin-top: 15px;
+        }
+        
+    }
+
+    
+}
+
+/* Customize the label (the container) */
+
+/* Hide the browser's default checkbox */
+.form__label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    transition: background-color 0.3s;
+
+    &--age {
+        
+    }
+}
+
+/* On mouse-over, add a grey background color */
+.form__label:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.form__label input:checked~.checkmark {
+    background-color: white;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+
+/* Show the checkmark when checked */
+.form__label input:checked~.checkmark:after {
+    opacity: 1;
+}
+
+/* Style the checkmark/indicator */
+.form__label .checkmark:after {
+    left: 5px;
+    top: 0px;
+    width: 5px;
+    height: 15px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}

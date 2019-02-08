@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Gill Sans Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Gill Sans Regular'), url('assets/fonts/Gill Sans.woff') format('woff');
+    }
+
+    @font-face {
+        font-family: 'light';
+        src: url('../fonts/GillSans-Light.woff2') format('woff2'),
+             url('../fonts/GillSans-Light.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    
+    }
